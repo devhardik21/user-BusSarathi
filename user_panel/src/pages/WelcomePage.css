@@ -1,0 +1,65 @@
+/* src/pages/WelcomePage.css */
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Concert+One&display=swap');
+
+.bevan-regular {
+  font-family: "Bevan", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.concert-one-regular {
+  font-family: "Concert One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.welcome-container {
+  /* Make sure the path to your image is correct */
+  background-image: url('D:\bus_sarathi\user_panel\src\assets\welcome-bg.jpg'); 
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  color: #3A506B; /* A dark slate blue for text */
+}
+
+.text-content h1 {
+  font-family: "Bevan",sans-serif; /* Use a font that matches your design */
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #227590;
+}
+
+.text-content p {
+  font-family: "Concert One", sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #0E598B;
+
+}
+
+.get-started-btn {
+  background-color: #3A506B; /* A dark slate blue, matching the text */
+  color: white;
+  border: none;
+  border-radius: 50px; /* This makes it pill-shaped */
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-family: "Concert One", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  width: 80%;
+  max-width: 300px;
+  transition: background-color 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background-color: #1C6074; /* A slightly darker shade for the hover effect */
+}

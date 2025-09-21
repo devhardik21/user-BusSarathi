@@ -1,0 +1,51 @@
+/* src/components/RecentBuses.css */
+.recent-buses-container {
+  padding: 0 0.5rem; /* Add some horizontal padding */
+}
+
+.recent-buses-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 1rem;
+}
+
+.buses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* 12px */
+}
+
+.recent-bus-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.recent-bus-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.bus-card-info h3 {
+  margin: 0 0 0.25rem 0;
+  color: #2d3748;
+  font-size: 1rem;
+}
+
+.bus-card-info p {
+  margin: 0;
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.bus-card-arrow {
+  color: #a0aec0;
+}

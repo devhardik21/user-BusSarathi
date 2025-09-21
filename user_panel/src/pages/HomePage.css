@@ -1,0 +1,14 @@
+/* src/pages/HomePage.css */
+.home-page {
+  background-color: #f7fafc; /* A very light grey background */
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.home-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1a202c;
+  text-align: center;
+  margin-bottom: 2rem;
+}

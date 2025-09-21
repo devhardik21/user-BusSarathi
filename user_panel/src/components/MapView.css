@@ -1,0 +1,11 @@
+/* src/components/MapView.css */
+.map-view-placeholder {
+  background-color: #cdeced;
+  flex-grow: 1; /* This makes the map take up the remaining space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5b7a9d;
+  font-size: 1.5rem;
+  font-weight: bold;
+}

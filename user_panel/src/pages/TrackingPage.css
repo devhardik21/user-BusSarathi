@@ -1,0 +1,12 @@
+/* src/pages/TrackingPage.css */
+.tracking-page-container {
+  display: grid;
+  grid-template-rows: 60vh 40vh; /* Give map 60% of viewport height, details 40% */
+  height: 100vh;
+}
+
+/* This wrapper ensures the map component has a defined space */
+.map-wrapper {
+  height: 100%;
+  width: 100%;
+}
