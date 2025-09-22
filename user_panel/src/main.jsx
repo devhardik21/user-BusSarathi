@@ -1,19 +1,16 @@
-// src/main.jsx
-
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css' // Global styles
+import App from './App'
+import { registerSW } from 'virtual:pwa-register'
 
-// This line finds the <div id="root"> in the HTML
-const rootElement = document.getElementById('root');
+const updateSW = registerSW({
+  onNeedRefresh() {
+    // show UI to the user to refresh
+    console.log('SW needs refresh — show update UI')
+  },
+  onOfflineReady() {
+    console.log('App ready to work offline')
+  }
+})
 
-// This tells React to take control of that element
-const root = ReactDOM.createRoot(rootElement);
-
-// This renders our main <App> component into the root element
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)

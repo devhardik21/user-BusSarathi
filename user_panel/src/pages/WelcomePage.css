@@ -1,65 +1,364 @@
 /* src/pages/WelcomePage.css */
-@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
-.bevan-regular {
-  font-family: "Bevan", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.concert-one-regular {
-  font-family: "Concert One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+:root {
+  --primary-blue: #2563eb;
+  --secondary-blue: #1d4ed8;
+  --accent-blue: #3b82f6;
+  --dark-blue: #1e40af;
+  --light-blue: #60a5fa;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --white: #ffffff;
+  --gradient-start: #667eea;
+  --gradient-middle: #764ba2;
+  --gradient-end: #f093fb;
 }
 
 .welcome-container {
-  /* Make sure the path to your image is correct */
-  background-image: url('D:\bus_sarathi\user_panel\src\assets\welcome-bg.jpg'); 
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-middle) 50%, var(--gradient-end) 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 4rem 2rem;
+  padding: 2rem;
   box-sizing: border-box;
   text-align: center;
-  color: #3A506B; /* A dark slate blue for text */
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating geometric shapes */
+.welcome-container::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.welcome-container::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  right: 15%;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Bus animation container */
+.bus-animation {
+  position: absolute;
+  top: 20%;
+  right: -100px;
+  width: 80px;
+  height: 40px;
+  animation: busMove 20s linear infinite;
+  z-index: 1;
+}
+
+@keyframes busMove {
+  0% {
+    right: -100px;
+  }
+  100% {
+    right: 100vw;
+  }
+}
+
+/* CSS Bus Shape */
+.css-bus {
+  width: 80px;
+  height: 35px;
+  background: var(--white);
+  border-radius: 8px 8px 4px 4px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.css-bus::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 10px;
+  width: 12px;
+  height: 12px;
+  background: var(--text-dark);
+  border-radius: 50%;
+}
+
+.css-bus::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  background: var(--text-dark);
+  border-radius: 50%;
+}
+
+/* Windows */
+.bus-windows {
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  right: 8px;
+  height: 15px;
+  background: var(--primary-blue);
+  border-radius: 3px;
+  display: flex;
+  gap: 3px;
+}
+
+.bus-windows::before,
+.bus-windows::after {
+  content: '';
+  flex: 1;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+}
+
+/* Main content styling */
+.text-content {
+  z-index: 2;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .text-content h1 {
-  font-family: "Bevan",sans-serif; /* Use a font that matches your design */
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
   text-align: center;
-  color: #227590;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideInFromTop 1s ease-out;
+  line-height: 1.2;
 }
 
 .text-content p {
-  font-family: "Concert One", sans-serif;
-  font-size: 1.2rem;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   text-align: center;
-  color: #0E598B;
-
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+  font-weight: 300;
+  line-height: 1.6;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideInFromBottom 1s ease-out 0.3s both;
 }
 
+/* Button styling */
 .get-started-btn {
-  background-color: #3A506B; /* A dark slate blue, matching the text */
-  color: white;
+  background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.9) 100%);
+  color: var(--primary-blue);
   border: none;
-  border-radius: 50px; /* This makes it pill-shaped */
-  padding: 1rem;
-  font-size: 1.2rem;
-  font-family: "Concert One", sans-serif;
-  font-weight: bold;
+  border-radius: 50px;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
   cursor: pointer;
-  width: 80%;
-  max-width: 300px;
-  transition: background-color 0.3s ease;
+  min-width: 200px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: slideInFromBottom 1s ease-out 0.6s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.get-started-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.get-started-btn:hover::before {
+  left: 100%;
 }
 
 .get-started-btn:hover {
-  background-color: #1C6074; /* A slightly darker shade for the hover effect */
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  background: var(--white);
+}
+
+.get-started-btn:active {
+  transform: translateY(0);
+}
+
+/* Animation keyframes */
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .welcome-container {
+    padding: 1.5rem;
+    justify-content: center;
+  }
+  
+  .text-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .text-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .get-started-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    min-width: 180px;
+  }
+  
+  .css-bus {
+    width: 60px;
+    height: 25px;
+  }
+  
+  .bus-animation {
+    top: 15%;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-container {
+    padding: 1rem;
+  }
+  
+  .text-content h1 {
+    font-size: 2rem;
+  }
+  
+  .text-content p {
+    font-size: 1rem;
+  }
+  
+  .get-started-btn {
+    width: 90%;
+    max-width: none;
+  }
+}
+
+/* Additional decorative elements */
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: floatingCircle 10s infinite linear;
+}
+
+.floating-circle:nth-child(1) {
+  width: 40px;
+  height: 40px;
+  top: 20%;
+  left: 80%;
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.floating-circle:nth-child(2) {
+  width: 60px;
+  height: 60px;
+  top: 70%;
+  left: 20%;
+  animation-delay: -3s;
+  animation-duration: 15s;
+}
+
+.floating-circle:nth-child(3) {
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 90%;
+  animation-delay: -6s;
+  animation-duration: 10s;
+}
+
+@keyframes floatingCircle {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+    opacity: 0.7;
+  }
 }
