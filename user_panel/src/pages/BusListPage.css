@@ -2,7 +2,7 @@
 .bus-list-page {
   background-color: #f7fafc;
   min-height: 100vh;
-  padding: 2rem 1rem;
+  padding: 2rem 0; /* <-- changed from 2rem 1rem to 2rem 0 */
   font-family: 'Poppins', sans-serif;
 }
 

@@ -2,7 +2,7 @@
 .home-page {
   background-color: #f7fafc; /* A very light grey background */
   min-height: 100vh;
-  padding: 2rem 1rem;
+  padding: 2rem 0; /* <-- changed from 2rem 1rem to 2rem 0 */
 }
 
 .home-title {
